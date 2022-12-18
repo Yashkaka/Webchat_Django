@@ -1,0 +1,46 @@
+{% load static %}
+
+
+<html>
+
+<head>
+    <title>Web Video Chat </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h1 class="title">Web Chat </h1>
+    <p id="notification" hidden></p>
+    <div class="entry-modal" id="entry-modal">
+        <p>Create or Join Meeting</p>
+        <input id="room-input" class="room-input" placeholder="Enter Room ID">
+        <div>
+            <button onclick="createRoom()">Create Room</button>
+            <button onclick="joinRoom()">Join Room</button>
+
+        </div>
+    </div>
+    <div class="meet-area">
+        <!-- Remote Video Element-->
+
+        <video id="remote-video"></video>
+
+        <!-- Local Video Element-->
+        <video id="local-video"></video>
+        <div class="meet-controls-bar">
+		<!--<button onclick="enableMute()" type="button">Mute sound</button>-->
+		
+            <button onclick="startScreenShare()">Screen Share</button>
+			<!--	<button onclick="enableMute()" <i class="fa fa-microphone"></i> id="audio" type="button">Mute sound</button>-->
+			<button onclick="muteAudio()" type ="button">	<i class="fa fa-microphone-slash" id="audio"></i>
+		
+		
+        </div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="{% static 'main.js' %}" type="text/javascript"></script>
+
+</html>
